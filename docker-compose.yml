@@ -5,6 +5,7 @@ services:
     image: sonarqube:9.9.1-community
     depends_on:
       - db
+    env_file: .env
     environment:
       SONAR_JDBC_URL: $SONAR_JDBC_URL
       SONAR_JDBC_USERNAME: $SONAR_JDBC_USERNAME
@@ -17,6 +18,7 @@ services:
       - "9000:9000"
   db:
     image: postgres:15.2
+    env_file: .env
     environment:
       POSTGRES_USER: $POSTGRES_USER
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
